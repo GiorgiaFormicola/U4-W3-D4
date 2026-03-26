@@ -145,7 +145,36 @@ public class Application {
             System.out.println(e.getMessage());
         }*/
 
-        System.out.println("Hello world");
+        //TEST getConcertsOnStreaming METHOD
+        /*List<Concert> concertsOnStreaming = eventsDAO.getConcertsOnStreaming(true);
+        List<Concert> concertsNotOnStreaming = eventsDAO.getConcertsOnStreaming(false);
 
+        System.out.println("CONCERTS ON STREAMING");
+        concertsOnStreaming.forEach(System.out::println);
+
+        System.out.println("CONCERTS NOT ON STREAMING");
+        concertsNotOnStreaming.forEach(System.out::println);*/
+
+
+        //TEST getConcertsByGenre METHOD
+       /* List<Concert> popConcerts = eventsDAO.getConcertsByGenre(GenreType.POP);
+        List<Concert> rockConcerts = eventsDAO.getConcertsByGenre(GenreType.ROCK);
+        List<Concert> classicalConcerts = eventsDAO.getConcertsByGenre(GenreType.CLASSICAL);
+
+        System.out.println("POP CONCERTS");
+        popConcerts.forEach(System.out::println);
+
+        System.out.println("ROCK CONCERTS");
+        rockConcerts.forEach(System.out::println);
+
+        System.out.println("CLASSICAL CONCERTS");
+        classicalConcerts.forEach(System.out::println);*/
+
+        //TEST getHomeGamesWon AND getAwayGamesWon METHOD
+
+        /*System.out.println("MATCHES WON BY HOME TEAM: " + eventsDAO.getHomeGamesWon());
+        System.out.println("MATCHES WON BY VISITING TEAM: " + eventsDAO.getAwayGamesWon());*/
+
+        System.out.println("Hello world");
     }
 }

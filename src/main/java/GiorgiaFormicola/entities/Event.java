@@ -9,6 +9,8 @@ import java.util.UUID;
 @Entity
 @Table(name = "events")
 @Inheritance(strategy = InheritanceType.JOINED)
+@NamedQuery(name = "getHomeGamesWon", query = "SELECT COUNT(f) FROM FootballMatch f WHERE f.winningTeam = f.homeTeam")
+@NamedQuery(name = "getAwayGamesWon", query = "SELECT COUNT(f) FROM FootballMatch f WHERE f.winningTeam = f.visitingTeam")
 public abstract class Event {
     //ATTRIBUTES
     @Id

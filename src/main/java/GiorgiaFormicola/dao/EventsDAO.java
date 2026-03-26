@@ -40,8 +40,18 @@ public class EventsDAO {
 
     public List<Concert> getConcertsByGenre(GenreType genreType) {
         TypedQuery<Concert> query = entityManager.createQuery("SELECT c FROM Concert c WHERE c.genreType = :genreType", Concert.class);
-        query.setParameter("genreType", genreType.toString());
+        query.setParameter("genreType", genreType);
         return query.getResultList();
+    }
+
+    public long getHomeGamesWon() {
+        TypedQuery<Long> query = entityManager.createNamedQuery("getHomeGamesWon", Long.class);
+        return query.getSingleResult();
+    }
+
+    public long getAwayGamesWon() {
+        TypedQuery<Long> query = entityManager.createNamedQuery("getAwayGamesWon", Long.class);
+        return query.getSingleResult();
     }
 
     public void delete(String id) {
