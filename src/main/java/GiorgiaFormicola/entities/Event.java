@@ -12,6 +12,7 @@ import java.util.UUID;
 @NamedQuery(name = "getHomeGamesWon", query = "SELECT COUNT(f) FROM FootballMatch f WHERE f.winningTeam = f.homeTeam")
 @NamedQuery(name = "getAwayGamesWon", query = "SELECT COUNT(f) FROM FootballMatch f WHERE f.winningTeam = f.visitingTeam")
 @NamedQuery(name = "getDrawnMatches", query = "SELECT COUNT(f) FROM FootballMatch f WHERE f.winningTeam IS NULL ")
+@NamedQuery(name = "getAthleticsCompetitionsByWinner", query = "SELECT a FROM AthleticsCompetition a WHERE a.winner = :person")
 public abstract class Event {
     //ATTRIBUTES
     @Id

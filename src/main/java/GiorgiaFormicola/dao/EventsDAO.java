@@ -1,7 +1,9 @@
 package GiorgiaFormicola.dao;
 
+import GiorgiaFormicola.entities.AthleticsCompetition;
 import GiorgiaFormicola.entities.Concert;
 import GiorgiaFormicola.entities.Event;
+import GiorgiaFormicola.entities.Person;
 import GiorgiaFormicola.enums.GenreType;
 import GiorgiaFormicola.exceptions.NotFoundException;
 import jakarta.persistence.EntityManager;
@@ -57,6 +59,12 @@ public class EventsDAO {
     public long getDrawnMatches() {
         TypedQuery<Long> query = entityManager.createNamedQuery("getDrawnMatches", Long.class);
         return query.getSingleResult();
+    }
+
+    public List<AthleticsCompetition> getAthleticsCompetitionsByWinner(Person person) {
+        TypedQuery<AthleticsCompetition> query = entityManager.createNamedQuery("getAthleticsCompetitionsByWinner", AthleticsCompetition.class);
+        query.setParameter("person", person);
+        return query.getResultList();
     }
 
     public void delete(String id) {

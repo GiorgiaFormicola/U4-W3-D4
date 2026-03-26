@@ -4,6 +4,7 @@ import GiorgiaFormicola.dao.EventsDAO;
 import GiorgiaFormicola.dao.LocationsDAO;
 import GiorgiaFormicola.dao.ParticipationsDAO;
 import GiorgiaFormicola.dao.PeopleDAO;
+import GiorgiaFormicola.entities.Person;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
@@ -177,8 +178,13 @@ public class Application {
 
 
         //TEST getDrawnMatches METHOD
-        System.out.println("MATCHES DRAWN: " + eventsDAO.getDrawnMatches());
-        
+        /* System.out.println("MATCHES DRAWN: " + eventsDAO.getDrawnMatches());*/
+
+        //TEST getAthleticsCompetitionsByWinner METHOD
+        Person person = peopleDAO.getById("40d4db0b-557d-471e-8c79-69554099a1d9");
+        System.out.println("COMPETITIONS WON BY " + person.getName() + " " + person.getSurname());
+        eventsDAO.getAthleticsCompetitionsByWinner(person).forEach(System.out::println);
+
         System.out.println("Hello world");
     }
 }
