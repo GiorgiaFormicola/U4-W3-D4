@@ -181,9 +181,14 @@ public class Application {
         /* System.out.println("MATCHES DRAWN: " + eventsDAO.getDrawnMatches());*/
 
         //TEST getAthleticsCompetitionsByWinner METHOD
-        Person person = peopleDAO.getById("40d4db0b-557d-471e-8c79-69554099a1d9");
+       /* Person person = peopleDAO.getById("40d4db0b-557d-471e-8c79-69554099a1d9");
         System.out.println("COMPETITIONS WON BY " + person.getName() + " " + person.getSurname());
-        eventsDAO.getAthleticsCompetitionsByWinner(person).forEach(System.out::println);
+        eventsDAO.getAthleticsCompetitionsByWinner(person).forEach(System.out::println);*/
+
+        //TEST getAthleticsCompetitionsByParticipant METHOD
+        Person person = peopleDAO.getById("40d4db0b-557d-471e-8c79-69554099a1d9");
+        System.out.println("COMPETITIONS COMPETED BY " + person.getName() + " " + person.getSurname());
+        eventsDAO.getAthleticsCompetitionsByParticipant(person).forEach(System.out::println);
 
         System.out.println("Hello world");
     }

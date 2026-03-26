@@ -67,6 +67,12 @@ public class EventsDAO {
         return query.getResultList();
     }
 
+    public List<AthleticsCompetition> getAthleticsCompetitionsByParticipant(Person person) {
+        TypedQuery<AthleticsCompetition> query = entityManager.createNamedQuery("getAthleticsCompetitionsByParticipant", AthleticsCompetition.class);
+        query.setParameter("person", person);
+        return query.getResultList();
+    }
+
     public void delete(String id) {
         Event eventFound = this.getById(id);
         EntityTransaction transaction = this.entityManager.getTransaction();
