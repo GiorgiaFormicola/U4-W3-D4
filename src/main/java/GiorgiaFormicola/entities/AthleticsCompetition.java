@@ -10,9 +10,14 @@ import java.util.List;
 @Table(name = "athletics_competitions")
 public class AthleticsCompetition extends Event {
     //RELATION WITH PERSON
-    @ManyToMany(mappedBy = "competitionsList")
+    @ManyToMany
+    @JoinTable(
+            name = "athletes_competitions",
+            joinColumns = @JoinColumn(name = "competition_id"),
+            inverseJoinColumns = @JoinColumn(name = "athlete_id")
+    )
     private List<Person> athletesList = new ArrayList<>();
-    
+
     @ManyToOne
     @JoinColumn(name = "winner_id")
     private Person winner;

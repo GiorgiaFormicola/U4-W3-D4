@@ -30,19 +30,7 @@ public class Person {
     //RELATION WITH PARTICIPATION
     @OneToMany(mappedBy = "person")
     private List<Participation> participationsList = new ArrayList<>();
-
-    //RELATION WITH ATHLETICS COMPETITION
-    @ManyToMany
-    @JoinTable(
-            uniqueConstraints = {
-                    @UniqueConstraint(columnNames = {"evento_id", "persona_id"})
-            },
-            name = "athlete_competition",
-            joinColumns = @JoinColumn(name = "athlete id"),
-            inverseJoinColumns = @JoinColumn(name = "competition_id")
-    )
-    private List<AthleticsCompetition> competitionsList = new ArrayList<>();
-
+    
     //CONSTRUCTOR FOR DB
     protected Person() {
     }
