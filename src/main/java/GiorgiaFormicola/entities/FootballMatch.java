@@ -60,10 +60,17 @@ public class FootballMatch extends Event {
     }
 
     public void setWinningTeam() {
-        if (this.homeTeamGoals > visitingTeamGoals) this.winningTeam = this.homeTeam;
-        if (this.homeTeamGoals < visitingTeamGoals) this.winningTeam = this.visitingTeam;
-        else this.winningTeam = null;
+        int homeGoals = getHomeTeamGoals();
+        int visitingGoals = getVisitingTeamGoals();
+        if (homeGoals > visitingGoals) {
+            this.winningTeam = this.homeTeam;
+        } else if (homeGoals < visitingGoals) {
+            this.winningTeam = this.visitingTeam;
+        } else {
+            this.winningTeam = null;
+        }
     }
+
 
     @Override
     public String toString() {

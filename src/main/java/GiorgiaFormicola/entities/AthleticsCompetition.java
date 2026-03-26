@@ -25,9 +25,7 @@ public class AthleticsCompetition extends Event {
 
     protected AthleticsCompetition() {
     }
-
-    ;
-
+    
     public AthleticsCompetition(String title, int year, int month, int day, String description, EventType eventType, int maxNumberOfParticipants, Location location) {
         super(title, year, month, day, description, eventType, maxNumberOfParticipants, location);
     }

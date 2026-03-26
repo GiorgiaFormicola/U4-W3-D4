@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import java.util.UUID;
 
 @Entity
-@Table(name = "locations")
+@Table(name = "locations", uniqueConstraints = {@UniqueConstraint(columnNames = {"name", "city"})})
 public class Location {
     //ATTRIBUTES
     @Id
