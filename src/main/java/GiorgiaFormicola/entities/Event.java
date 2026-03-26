@@ -11,6 +11,7 @@ import java.util.UUID;
 @Inheritance(strategy = InheritanceType.JOINED)
 @NamedQuery(name = "getHomeGamesWon", query = "SELECT COUNT(f) FROM FootballMatch f WHERE f.winningTeam = f.homeTeam")
 @NamedQuery(name = "getAwayGamesWon", query = "SELECT COUNT(f) FROM FootballMatch f WHERE f.winningTeam = f.visitingTeam")
+@NamedQuery(name = "getDrawnMatches", query = "SELECT COUNT(f) FROM FootballMatch f WHERE f.winningTeam IS NULL ")
 public abstract class Event {
     //ATTRIBUTES
     @Id

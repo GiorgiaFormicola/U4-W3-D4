@@ -54,6 +54,11 @@ public class EventsDAO {
         return query.getSingleResult();
     }
 
+    public long getDrawnMatches() {
+        TypedQuery<Long> query = entityManager.createNamedQuery("getDrawnMatches", Long.class);
+        return query.getSingleResult();
+    }
+
     public void delete(String id) {
         Event eventFound = this.getById(id);
         EntityTransaction transaction = this.entityManager.getTransaction();

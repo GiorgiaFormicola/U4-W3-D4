@@ -175,6 +175,10 @@ public class Application {
         /*System.out.println("MATCHES WON BY HOME TEAM: " + eventsDAO.getHomeGamesWon());
         System.out.println("MATCHES WON BY VISITING TEAM: " + eventsDAO.getAwayGamesWon());*/
 
+
+        //TEST getDrawnMatches METHOD
+        System.out.println("MATCHES DRAWN: " + eventsDAO.getDrawnMatches());
+        
         System.out.println("Hello world");
     }
 }
