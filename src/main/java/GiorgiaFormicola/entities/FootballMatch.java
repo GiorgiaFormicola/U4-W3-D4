@@ -22,15 +22,13 @@ public class FootballMatch extends Event {
     protected FootballMatch() {
     }
 
-    public FootballMatch(String title, int year, int month, int day, String description, EventType eventType, int maxNumberOfParticipants, Location location, String homeTeam, String visitingTeam, int homeTeamGoals, int visitingTeamGoals) {
+    public FootballMatch(String title, int year, int month, int day, String description, EventType eventType, int maxNumberOfParticipants, Location location, String homeTeam, String visitingTeam) {
         super(title, year, month, day, description, eventType, maxNumberOfParticipants, location);
         this.homeTeam = homeTeam;
         this.visitingTeam = visitingTeam;
-        this.homeTeamGoals = homeTeamGoals;
-        this.visitingTeamGoals = visitingTeamGoals;
-        if (homeTeamGoals > visitingTeamGoals) this.winningTeam = homeTeam;
-        if (homeTeamGoals < visitingTeamGoals) this.winningTeam = visitingTeam;
-        else this.winningTeam = null;
+        this.homeTeamGoals = 0;
+        this.visitingTeamGoals = 0;
+        this.winningTeam = null;
     }
 
     public String getHomeTeam() {
@@ -45,12 +43,26 @@ public class FootballMatch extends Event {
         return homeTeamGoals;
     }
 
+    public void setHomeTeamGoals(int homeTeamGoals) {
+        this.homeTeamGoals = homeTeamGoals;
+    }
+
     public int getVisitingTeamGoals() {
         return visitingTeamGoals;
     }
 
+    public void setVisitingTeamGoals(int visitingTeamGoals) {
+        this.visitingTeamGoals = visitingTeamGoals;
+    }
+
     public String getWinningTeam() {
         return winningTeam;
+    }
+
+    public void setWinningTeam() {
+        if (this.homeTeamGoals > visitingTeamGoals) this.winningTeam = this.homeTeam;
+        if (this.homeTeamGoals < visitingTeamGoals) this.winningTeam = this.visitingTeam;
+        else this.winningTeam = null;
     }
 
     @Override

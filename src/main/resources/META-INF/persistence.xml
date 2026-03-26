@@ -8,6 +8,7 @@
         <class>GiorgiaFormicola.entities.Person</class>
         <class>GiorgiaFormicola.entities.Participation</class>
         <class>GiorgiaFormicola.entities.FootballMatch</class>
+        <class>GiorgiaFormicola.entities.Concert</class>
         <properties>
             <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/events_management_2"/>
             <property name="jakarta.persistence.jdbc.user" value="postgres"/>
