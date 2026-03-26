@@ -51,5 +51,6 @@ public class Application {
         System.out.println(person1FromDB);
         person1FromDB.getParticipationsList().forEach(System.out::println);
         System.out.println(participation1FromDB);*/
+        System.out.println("Hello world");
     }
 }

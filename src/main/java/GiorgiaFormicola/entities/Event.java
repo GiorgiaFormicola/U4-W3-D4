@@ -8,7 +8,8 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "events")
-public class Event {
+@Inheritance(strategy = InheritanceType.JOINED)
+public abstract class Event {
     //ATTRIBUTES
     @Id
     @GeneratedValue
@@ -106,14 +107,12 @@ public class Event {
 
     @Override
     public String toString() {
-        return "Event{" +
-                "id=" + id +
+        return "id=" + id +
                 ", title='" + title + '\'' +
                 ", eventDate=" + eventDate +
                 ", description='" + description + '\'' +
                 ", eventType=" + eventType +
                 ", maxNumberOfParticipants=" + maxNumberOfParticipants +
-                ", location=" + location +
-                '}';
+                ", location=" + location;
     }
 }
