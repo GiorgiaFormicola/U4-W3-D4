@@ -4,7 +4,6 @@ import GiorgiaFormicola.dao.EventsDAO;
 import GiorgiaFormicola.dao.LocationsDAO;
 import GiorgiaFormicola.dao.ParticipationsDAO;
 import GiorgiaFormicola.dao.PeopleDAO;
-import GiorgiaFormicola.entities.Person;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
@@ -186,10 +185,15 @@ public class Application {
         eventsDAO.getAthleticsCompetitionsByWinner(person).forEach(System.out::println);*/
 
         //TEST getAthleticsCompetitionsByParticipant METHOD
-        Person person = peopleDAO.getById("40d4db0b-557d-471e-8c79-69554099a1d9");
+        /*Person person = peopleDAO.getById("40d4db0b-557d-471e-8c79-69554099a1d9");
         System.out.println("COMPETITIONS COMPETED BY " + person.getName() + " " + person.getSurname());
-        eventsDAO.getAthleticsCompetitionsByParticipant(person).forEach(System.out::println);
+        eventsDAO.getAthleticsCompetitionsByParticipant(person).forEach(System.out::println);*/
+
+        //TEST getSoldOutEvents METHOD
+        eventsDAO.getSoldOutEvents().forEach(System.out::println);
+
 
         System.out.println("Hello world");
     }
+
 }

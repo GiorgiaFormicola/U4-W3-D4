@@ -4,6 +4,7 @@ import GiorgiaFormicola.enums.EventType;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -14,6 +15,7 @@ import java.util.UUID;
 @NamedQuery(name = "getDrawnMatches", query = "SELECT COUNT(f) FROM FootballMatch f WHERE f.winningTeam IS NULL ")
 @NamedQuery(name = "getAthleticsCompetitionsByWinner", query = "SELECT a FROM AthleticsCompetition a WHERE a.winner = :person")
 @NamedQuery(name = "getAthleticsCompetitionsByParticipant", query = "SELECT a FROM AthleticsCompetition a WHERE :person MEMBER OF a.athletesSet ")
+@NamedQuery(name = "getSoldOutEvents", query = "SELECT e FROM Event e WHERE e.maxNumberOfParticipants = SIZE(e.participationsList)")
 public abstract class Event {
     //ATTRIBUTES
     @Id
@@ -39,6 +41,10 @@ public abstract class Event {
     @ManyToOne
     @JoinColumn(name = "location_id", nullable = false)
     private Location location;
+
+    //RELATION WITH EVENT
+    @OneToMany(mappedBy = "event")
+    private List<Participation> participationsList;
 
     //CONSTRUCTOR FOR DB
     public Event() {

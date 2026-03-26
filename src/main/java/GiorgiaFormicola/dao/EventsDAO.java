@@ -73,6 +73,19 @@ public class EventsDAO {
         return query.getResultList();
     }
 
+    public List<Event> getSoldOutEvents() {
+        TypedQuery<Event> query = entityManager.createNamedQuery("getSoldOutEvents", Event.class);
+        return query.getResultList();
+    }
+
+    /*public void setMaxNumb() {
+        Query updateQuery = entityManager.createQuery("UPDATE Event e SET e.maxNumberOfParticipants = 4 WHERE e.title LIKE 'Coldplay' ");
+        EntityTransaction transaction = entityManager.getTransaction();
+        transaction.begin();
+        updateQuery.executeUpdate();
+        transaction.commit();
+    }*/
+
     public void delete(String id) {
         Event eventFound = this.getById(id);
         EntityTransaction transaction = this.entityManager.getTransaction();
