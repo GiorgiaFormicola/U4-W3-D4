@@ -1,10 +1,13 @@
 package GiorgiaFormicola.dao;
 
+import GiorgiaFormicola.entities.Event;
 import GiorgiaFormicola.entities.Participation;
 import GiorgiaFormicola.exceptions.NotFoundException;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.TypedQuery;
 
+import java.util.List;
 import java.util.UUID;
 
 public class ParticipationsDAO {
@@ -26,6 +29,12 @@ public class ParticipationsDAO {
         Participation found = entityManager.find(Participation.class, UUID.fromString(id));
         if (found == null) throw new NotFoundException(id);
         return found;
+    }
+
+    public List<Participation> getParticipationsPendingByEvent(Event event) {
+        TypedQuery<Participation> query = entityManager.createNamedQuery("getParticipationsPendingByEvent", Participation.class);
+        query.setParameter("event", event);
+        return query.getResultList();
     }
 
     public void delete(String id) {

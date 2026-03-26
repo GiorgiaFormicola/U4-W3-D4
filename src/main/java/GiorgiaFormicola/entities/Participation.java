@@ -16,6 +16,7 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "participations")
+@NamedQuery(name = "getParticipationsPendingByEvent", query = "SELECT p FROM Participation p WHERE event = :event AND state = 'PENDING'")
 public class Participation {
     //ATTRIBUTES
     @Id
